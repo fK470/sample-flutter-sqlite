@@ -1,0 +1,78 @@
+#-------------------------------------------------------------------------------
+# General
+#-------------------------------------------------------------------------------
+
+# OS generated files # 一般的なOS生成ファイル
+.DS_Store
+Thumbs.db
+
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+#-------------------------------------------------------------------------------
+# Flutter/Dart
+#-------------------------------------------------------------------------------
+
+# Flutter/Dart specific # Flutter/Dart固有のもの
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+
+**/doc/api/
+
+# For Android Studio (IntelliJ) IDE # Android Studio (IntelliJ)関連
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# For VS Code # VS Code関連
+.vscode/
+
+# Generated files by pub # pubで生成されるファイル
+*.g.dart
+*.freezed.dart
+
+# Other common generated files # その他の一般的な生成ファイル
+*.gr.dart # auto_route
+*.config.dart # get_it, injectable
+
+# Crash reports # クラッシュレポート
+crash_reports/
+
+#-------------------------------------------------------------------------------
+# Android
+#-------------------------------------------------------------------------------
+
+# Gradle generated files # Gradleで生成されるファイル
+android/.gradle
+android/app/build
+android/local.properties
+android/build
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Keystore files # キーストアファイル（パスワード等を含む可能性があるので注意）
+*.jks
+*.keystore
