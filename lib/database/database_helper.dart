@@ -1,7 +1,7 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
-import '../models/todo.dart'; // Todoモデルクラスをインポート
+import '../models/todo.dart';
 
 class DatabaseHelper {
   static final _databaseName = "TodoDatabase.db";
@@ -29,7 +29,6 @@ class DatabaseHelper {
   _initDatabase() async {
     final documentsDirectory = await getApplicationDocumentsDirectory();
     final path = join(documentsDirectory.path, _databaseName);
-    print(path);
     return await openDatabase(path,
         version: _databaseVersion, onCreate: _onCreate);
   }

@@ -45,6 +45,11 @@ class _TodoListScreenState extends State<TodoListScreen> {
     final loadedTodos = await dbHelper.getTodos();
     setState(() {
       todos = loadedTodos;
+      // チェックのついたアイテムを最後に移動
+      todos.sort((a, b) =>
+          a.isCompleted == b.isCompleted ? 0 : (a.isCompleted ? 1 : -1));
+      // compareTo()メソッドをするパターン
+      // todos.sort((a, b) => a.isCompleted.compareTo(b.isCompleted));
     });
   }
 
@@ -109,27 +114,31 @@ class _TodoListScreenState extends State<TodoListScreen> {
               ),
             ),
           ),
+          SizedBox(height: 15),
           Expanded(
             child: ListView.builder(
               itemCount: todos.length,
               itemBuilder: (context, index) {
                 final todo = todos[index];
                 return ListTile(
-                  title: Text(todo.title),
+                  title: Text(
+                    todo.title,
+                    style: TextStyle(
+                      decoration:
+                          todo.isCompleted ? TextDecoration.lineThrough : null,
+                    ),
+                  ),
                   leading: IconButton(
                     icon: Icon(Icons.delete),
                     onPressed: () {
                       _deleteTodo(todo.id!);
                     },
                   ),
-                  trailing: Padding(
-                    padding: const EdgeInsets.only(right: 40),
-                    child: Checkbox(
-                      value: todo.isCompleted,
-                      onChanged: (_) {
-                        _updateTodo(todo);
-                      },
-                    ),
+                  trailing: Checkbox(
+                    value: todo.isCompleted,
+                    onChanged: (_) {
+                      _updateTodo(todo);
+                    },
                   ),
                 );
               },
