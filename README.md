@@ -31,6 +31,8 @@ A sample Flutter app with SQLite.
 - `sqflite`: ^2.0.0+3
 - `path_provider`: ^2.0.2
 
+[path_providerを入れたときに出るエラーの解消方法](https://stackoverflow.com/questions/79160929/execution-failed-for-task-path-provider-androidcompiledebugjavawithjavac)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
